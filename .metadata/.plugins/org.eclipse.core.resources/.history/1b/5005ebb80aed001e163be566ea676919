@@ -1,0 +1,21 @@
+package com.sattva.maw.service;
+
+import java.util.List;
+
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
+import org.springframework.data.domain.Page;
+
+import com.sattva.maw.dto.MawDTO;
+import com.sattva.maw.exception.MawException;
+
+public interface MawService {
+
+	public String registerWish (MawDTO mawDTO) throws MawException;
+	public List<MawDTO> getAllWishes() throws MawException;
+	public void updateWish(Integer orgId, String newItem) throws MawException;
+	public void updateWish(Integer orgId, Integer newQuantity) throws MawException;
+	public void deleteWish(Integer orgId) throws MawException;
+	public Page<MawDTO> findAllWithPageable(Pageable page) throws MawException;
+	public List<MawDTO> findAll(Sort sort) throws MawException;
+}

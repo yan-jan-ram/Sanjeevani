@@ -1,0 +1,5 @@
+package com.sattva.maw.dto;
+
+public class MawDTO {
+
+}

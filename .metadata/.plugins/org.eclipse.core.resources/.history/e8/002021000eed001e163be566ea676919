@@ -1,0 +1,12 @@
+package com.sattva.maw.repo;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.sattva.maw.entity.MawEntity;
+
+public interface MawRepository extends JpaRepository<MawEntity, Integer>{
+
+	List<MawEntity> findByOrgId(Integer orgId);
+}

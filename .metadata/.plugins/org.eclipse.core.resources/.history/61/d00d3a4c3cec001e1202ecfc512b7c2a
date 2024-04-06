@@ -1,0 +1,5 @@
+package com.sattva.maw.service;
+
+public class MawServiceException {
+
+}

@@ -1,0 +1,5 @@
+package com.sattva.maw.utility;
+
+public class LoggingAspect {
+
+}

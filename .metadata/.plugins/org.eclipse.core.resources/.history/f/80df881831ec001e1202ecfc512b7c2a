@@ -1,0 +1,50 @@
+package com.sattva.maw.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class MawEntity {
+
+	private Integer orgId;
+	private String orgName;
+	private String item;
+	private Integer quantity;
+	private Boolean displayOnSite;
+	
+	public Integer getOrgId() {
+		return orgId;
+	}
+	public void setOrgId(Integer orgId) {
+		this.orgId = orgId;
+	}
+	public String getOrgName() {
+		return orgName;
+	}
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
+	}
+	public String getItem() {
+		return item;
+	}
+	public void setItem(String item) {
+		this.item = item;
+	}
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+	public Boolean getDisplayOnSite() {
+		return displayOnSite;
+	}
+	public void setDisplayOnSite(Boolean displayOnSite) {
+		this.displayOnSite = displayOnSite;
+	}
+	
+	@Override
+	public String toString() {
+		return "MawEntity [orgId=" + orgId + ", orgName=" + orgName + ", item=" + item + ", quantity=" + quantity
+				+ ", displayOnSite=" + displayOnSite + "]";
+	}
+}

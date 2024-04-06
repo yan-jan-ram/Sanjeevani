@@ -1,0 +1,7 @@
+maw.organization_name.absent=Name must not be absent.
+maw.organization_name.invalid=Please enter valid name only.
+maw.item.absent=Item name is mandatory.
+maw.item.invalid=please enter valid item name.
+maw.quantity.absent=Quantity field must not be empty.
+maw.quantity.invalid=Quantity must contain atleast one item and values should be numerical only.
+maw.display.absent=Must select either yes or no.

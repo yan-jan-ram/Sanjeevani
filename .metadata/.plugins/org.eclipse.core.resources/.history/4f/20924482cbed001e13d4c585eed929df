@@ -1,0 +1,126 @@
+package com.sattva.maw.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
+import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
+
+import com.sattva.maw.dto.MawDTO;
+import com.sattva.maw.entity.MawEntity;
+import com.sattva.maw.exception.MawException;
+import com.sattva.maw.repo.MawRepository;
+
+import jakarta.transaction.Transactional;
+
+@Service(value = "mawService")
+@Transactional
+public class MawServiceImpl implements MawService {
+
+	@Autowired
+	private MawRepository mawRepo;
+	
+	String message;
+	
+	@Override
+	public String registerWish(MawDTO mawDTO) throws MawException {
+		// TODO Auto-generated method stub
+		List<MawEntity> mawEntity = mawRepo.findByOrgId(mawDTO.getOrgId());
+		
+		mawRepo.save(mawEntity);
+		return message;
+	}
+
+	@Override
+	public List<MawDTO> getAllWishes() throws MawException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<MawDTO> getWishByOrgId(Integer orgId) throws MawException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<MawDTO> getWishByOrgName(String orgName) throws MawException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<MawDTO> getWishByItem(String item) throws MawException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateWishByOrgId(Integer orgId, String newItem) throws MawException {
+		// TODO Auto-generated method stub
+		return message;
+	}
+
+	@Override
+	public String updateWishByOrgId(Integer orgId, Integer newQuantity) throws MawException {
+		// TODO Auto-generated method stub
+		return message;
+	}
+
+	@Override
+	public String updateWishByOrgName(String orgName, String newItem) throws MawException {
+		// TODO Auto-generated method stub
+		return message;
+	}
+
+	@Override
+	public String updateWishByOrgName(String orgName, Integer newQuantity) throws MawException {
+		// TODO Auto-generated method stub
+		return message;
+	}
+
+	@Override
+	public String updateWishByItem(String item, Integer newQuantity) throws MawException {
+		// TODO Auto-generated method stub
+		return message;
+	}
+
+	@Override
+	public String deleteWishByOrgId(Integer orgId) throws MawException {
+		// TODO Auto-generated method stub
+		return message;
+	}
+
+	@Override
+	public String deleteWishByOrgName(String orgName) throws MawException {
+		// TODO Auto-generated method stub
+		return message;
+	}
+
+	@Override
+	public String deleteWishByItem(String item) throws MawException {
+		// TODO Auto-generated method stub
+		return message;
+	}
+
+	@Override
+	public Page<MawDTO> findAllWithPageable(Pageable page) throws MawException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<MawDTO> findAll(Sort sort) throws MawException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer availableQuantity() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

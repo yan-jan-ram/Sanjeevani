@@ -1,0 +1,61 @@
+package com.sattva.maw.dto;
+
+import com.sattva.maw.entity.MawEntity;
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
+public class MawDTO {
+
+	private Integer orgId;
+	
+	@NotNull(message = "{maw.organization_name.absent}")
+	@Pattern(regexp = "([A-Za-z0-9]+)+( [A-Za-z0-9])*", message = "{maw.organization_name.invalid}")
+	private String orgName;
+	
+	private String emailId;
+	
+	private Long contactNumber;
+	
+	@NotNull(message = "{maw.item.absent}")
+	@Pattern(regexp = "([A-Za-z]+)+( [A-Za-z])", message = "{maw.item.invalid}")
+	private String item;
+	
+	@NotNull(message = "{maw.quantity.absent}")
+	@Min(value = 1, message = "{maw.quantity.invalid}")
+	private Integer quantity;
+	
+	@NotNull(message = "{maw.display.absent}")
+	@Pattern(regexp = "(yes|no)", message = "{maw.display.invalid}")
+	private String displayOnSite;
+	
+	public MawDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static MawDTO prepareDTO(MawEntity mawEntity) {
+		MawDTO mawDto = new MawDTO();
+		
+		mawDto.setOrgId(mawEntity.getOrgId());
+		mawDto.setOrgName(mawEntity.getOrgName());
+		mawDto.setItem(mawEntity.getItem());
+		mawDto.setQuantity(mawEntity.getQuantity());
+		mawDto.setDisplayOnSite(mawEntity.getDisplayOnSite());
+		
+		return mawDto;
+	}
+	
+	public static MawEntity prepareEntity(MawDTO mawDto) {
+		MawEntity mawEntity = new MawEntity();
+		
+		mawEntity.setOrgId(mawDto.getOrgId());
+		mawEntity.setOrgName(mawDto.getOrgName());
+		mawEntity.setItem(mawDto.getItem());
+		mawEntity.setQuantity(mawDto.getQuantity());
+		mawEntity.setDisplayOnSite(mawDto.getDisplayOnSite());
+		
+		return mawEntity;
+	}
+}

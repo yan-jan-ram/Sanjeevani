@@ -1,0 +1,48 @@
+package com.sattva.maw.utility;
+
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.sattva.maw.exception.MawException;
+
+import jakarta.validation.ConstraintViolationException;
+
+@RestControllerAdvice
+public class ExceptionControllerAdvice {
+
+	@Autowired
+	Environment environment;
+	
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErrorInfo> generalExceptionHandler(Exception exception) {
+		ErrorInfo errorInfo = new ErrorInfo();
+		
+		errorInfo.setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+		errorInfo.setErrorMsg(environment.getProperty("General.EXCEPTION_MESSAGE"));
+		errorInfo.setTimestamp(LocalDateTime.now());
+		return new ResponseEntity<ErrorInfo>(errorInfo, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@ExceptionHandler(MawException.class)
+	public ResponseEntity<ErrorInfo> mawExceptionHandler(MawException exception) {
+		ErrorInfo errorInfo = new ErrorInfo();
+		
+		errorInfo.setErrorCode(HttpStatus.NOT_FOUND.value());
+		errorInfo.setErrorMsg(environment.getProperty(exception.getMessage()));
+		errorInfo.setTimestamp(LocalDateTime.now());
+		
+		return new ResponseEntity<ErrorInfo>(errorInfo, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler({MethodArgumentNotValidException.class, ConstraintViolationException.class})
+	public ResponseEntity<ErrorInfo> validationExceptionHandler(MethodArgumentNotValidException manvException, ConstraintViolationException cvException) {
+		
+	}
+}

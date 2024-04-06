@@ -1,0 +1,34 @@
+package com.sattva.maw.service;
+
+import java.util.List;
+
+import com.sattva.maw.dto.MawDTO;
+import com.sattva.maw.exception.MawException;
+
+public class MawServiceImpl implements MawService{
+
+	@Override
+	public String registerWish(MawDTO mawDTO) throws MawException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<MawDTO> getAllWishes() throws MawException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateWish(Integer orgId, String newItem) throws MawException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteWish(Integer orgId) throws MawException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

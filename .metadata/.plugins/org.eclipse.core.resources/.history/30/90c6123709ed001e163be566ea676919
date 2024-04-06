@@ -1,0 +1,14 @@
+package com.sattva.maw.service;
+
+import java.util.List;
+
+import com.sattva.maw.dto.MawDTO;
+import com.sattva.maw.exception.MawException;
+
+public interface MawService {
+
+	public String registerWish (MawDTO mawDTO) throws MawException;
+	public List<MawDTO> getAllWishes() throws MawException;
+	public void updateWish(Integer orgId, String newItem) throws MawException;
+	public void deleteWish(Integer orgId) throws MawException;
+}

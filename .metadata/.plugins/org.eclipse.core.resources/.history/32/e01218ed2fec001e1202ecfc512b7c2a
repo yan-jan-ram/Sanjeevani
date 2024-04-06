@@ -1,0 +1,5 @@
+package com.sattva.maw.entity;
+
+public class MawEntity {
+
+}

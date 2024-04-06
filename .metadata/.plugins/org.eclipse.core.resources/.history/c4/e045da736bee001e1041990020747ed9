@@ -1,0 +1,26 @@
+package com.sattva.maw.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sattva.maw.service.MawService;
+
+@RestController
+@RequestMapping(value = "/api")
+@Validated
+public class MawController {
+
+	@Autowired
+	private MawService mawService;
+	
+	@Autowired
+	Environment environment;
+	
+	public ResponseEntity<String> name() {
+		
+	}
+}

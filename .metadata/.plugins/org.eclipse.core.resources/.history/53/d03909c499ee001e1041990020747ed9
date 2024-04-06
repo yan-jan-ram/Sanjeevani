@@ -1,0 +1,31 @@
+spring.application.name=MakeAWish
+server.port=8001
+
+#Database connection properties
+spring.datasource.url=jdbc:mysql://localhost:3306/make_a_wish
+spring.datasource.username=root
+spring.datasource.password=J@naki123
+
+#hibernate properties
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.hibernate.ddl-auto=update
+
+#logging sql query properties
+spring.jpa.show-sql=true
+spring.jpa.generate-ddl=true
+logging.level.org.hibernate.SQL=debug
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=trace
+
+#Exception messages
+General.EXCEPTION_MESSAGE=Request could not be processed due to server issue. Please try later!
+
+#Service messages
+Service.WISH_ALREADY_EXISTS=This wish already exists.
+Service.WISH_NOT_FOUND=This wish does not exist.
+Service.NO_WISHES_FOUND=Requested wish details are not available.
+
+#API messages
+API.INSERT_SUCCESS=Wish data entered successfully!
+API.UPDATE_SUCCESS=Wish data updated successfully!
+API.DELETE_SUCCESS=Wish data deleted successfully!
